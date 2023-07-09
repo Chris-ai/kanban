@@ -1,0 +1,10 @@
+{
+  "allBoards": "All Boards",
+  "createNewBoard": "+ Create New Board",
+  "createNewBoardWithoutPlus": "Create New Board",
+  "addNewBoard": "Add New Board",
+  "boardName": "Board Name",
+  "boardColumns": "Board Columns",
+  "boardNameInputPlaceholder": "e.g. Web Design",
+  "addNewColumn": "+ Add New Column"
+}

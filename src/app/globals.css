@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-color: #E4EBFA;
+  --image-url: url('../assets/logo-light.svg');
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #20212C;
+    --image-url: url('../assets/logo-dark.svg');
+  }
+}
+
+body {
+  color: #FFFFFF;
+  background-color: var(--background-color);
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.heading-xl {
+  @apply text-xl font-bold leading-xl
+}
+
+.heading-l {
+  @apply text-lg font-bold leading-lg
+}
+
+.heading-m {
+  @apply text-md font-bold leading-md
+}
+
+.heading-s {
+  @apply text-xs font-bold leading-sm
+}
+
+.body-l {
+  @apply text-sm font-medium leading-lg
+}
+
+.body-m {
+  @apply text-xs font-medium leading-sm
+}
+
+
+.svg-hover > path {
+  fill: #FFFFFF;
+}
