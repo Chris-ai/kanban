@@ -20,9 +20,9 @@ const Button: React.FC<ButtonProps> = ({className, appearance = 'primary', type=
     const getAppearanceBgColor = () => {
         switch(appearance){
             case 'primary':
-                return 'bg-main-purple'
+                return 'bg-main-purple text-white'
             case 'secondary':
-                return 'lines-light'
+                return 'bg-lines-light text-main-purple'
             case 'destructive':
                 return 'bg-red'
             case 'transparent':
@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({className, appearance = 'primary', type=
     )
 
     return(
-        <button onClick={handleOnClick} className={`${getAppearanceBgColor()} ${className}`}>
+        <button onClick={handleOnClick} className={`rounded-[20px] font-bold text-sm py-2 ${getAppearanceBgColor()} ${className}`}>
             {children}
         </button>
     )

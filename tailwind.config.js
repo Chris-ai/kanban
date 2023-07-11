@@ -6,7 +6,14 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: { },
+    extend: {
+		lineHeight: {
+			'xl': '1.875rem', // 30px
+			'lg': '1.4375rem', // 23 px
+			'md': '1.1875rem', // 19 px
+			'sm': '0.9375rem' // 15 px
+		}
+	},
     colors: {
       "main-purple": "#635FC7",
       "main-purple-light": "#A8A4FF",
@@ -27,12 +34,6 @@ module.exports = {
       'md': "0.9375rem", // 15px
       'sm': "0.8125rem", // 13px
       'xs': "0.75rem" // 12px
-    },
-    lineHeight: {
-    'xl': '1.875rem', // 30px
-    'lg': '1.4375rem', // 23 px
-    'md': '1.1875rem', // 19 px
-    'sm': '0.9375rem' // 15 px
     }
   },
   plugins: [],

@@ -10,22 +10,24 @@ interface CustomInputProps {
     className?: string
 }
 
-export const Input: React.FC<CustomInputProps> = ({id,label, value, placeholder, onChange, className}) => {
+const Input: React.FC<CustomInputProps> = ({id,label, value, placeholder, onChange, className}) => {
 
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         onChange(event.target.value);
     }
 
     return (
-        <div>
-            {label && <label htmlFor={id}>{label}</label>}
+        <div className={'flex flex-col gap-y-2'}>
+            {label && <label htmlFor={id} className={'font-bold text-xs'}>{label}</label>}
             <input
                 id={id}
                 type="text"
                 value={value}
-                className={cn('', className)}
+                className={cn('body-l bg-dark-grey border border-medium-grey border-opacity-25 rounded px-4 py-2 outline-0 placeholder-opacity-25', className)}
                 placeholder={placeholder}
                 onChange={handleOnChange}/>
         </div>
     )
 }
+
+export default Input;
