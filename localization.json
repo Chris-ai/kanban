@@ -6,5 +6,8 @@
   "boardName": "Board Name",
   "boardColumns": "Board Columns",
   "boardNameInputPlaceholder": "e.g. Web Design",
-  "addNewColumn": "+ Add New Column"
+  "addNewColumn": "+ Add New Column",
+  "toDo": "To Do",
+  "inProgress": "In Progress",
+  "done": "Done"
 }

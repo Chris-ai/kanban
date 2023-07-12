@@ -12,7 +12,7 @@ const CustomDialog: React.FC<CustomDialogProps> = ({isOpen, onClose, children}) 
         <Dialog open={isOpen} onClose={onClose}>
             <div className="fixed inset-0 bg-black/30 flex items-center justify-center" aria-hidden="true">
                 <Dialog.Panel>
-                    <div className={'bg-dark-grey rounded-lg w-[263px] flex flex-col'}>
+                    <div className={'bg-dark-grey rounded-lg w-[340px] flex flex-col'}>
                         {children}
                     </div>
                 </Dialog.Panel>

@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
                 </Button>
             </div>
         </nav>
-            {isCreateNewBoardDialogOpen && <AddNewBoardDialog isOpen={isCreateNewBoardDialogOpen} onClose={() => setIsCreateNewBoardDialogOpen(false)} />}
+            {isCreateNewBoardDialogOpen && <AddNewBoardDialog isOpen={isCreateNewBoardDialogOpen} onClose={() => setIsCreateNewBoardDialogOpen(false)} columns={[]} />}
         </>
     )
 }

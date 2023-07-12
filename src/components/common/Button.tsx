@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({className, appearance = 'primary', type=
             case 'primary':
                 return 'bg-main-purple text-white'
             case 'secondary':
-                return 'bg-lines-light text-main-purple'
+                return 'bg-white text-main-purple'
             case 'destructive':
                 return 'bg-red'
             case 'transparent':
@@ -31,13 +31,13 @@ const Button: React.FC<ButtonProps> = ({className, appearance = 'primary', type=
     }
 
     if(type === 'icon') return (
-        <button onClick={handleOnClick} className={`py-2 px-4 rounded-3xl ${getAppearanceBgColor()} ${className}`}>
+        <button onClick={handleOnClick} className={cn('py-2 px-4 rounded-3xl', getAppearanceBgColor(),className)}>
             {children}
         </button>
     )
 
     return(
-        <button onClick={handleOnClick} className={`rounded-[20px] font-bold text-sm py-2 ${getAppearanceBgColor()} ${className}`}>
+        <button onClick={handleOnClick} className={cn('rounded-[20px] font-bold text-sm py-2', getAppearanceBgColor(), className)}>
             {children}
         </button>
     )

@@ -17,7 +17,7 @@ const Input: React.FC<CustomInputProps> = ({id,label, value, placeholder, onChan
     }
 
     return (
-        <div className={'flex flex-col gap-y-2'}>
+        <div className={'flex flex-col gap-y-2 w-full'}>
             {label && <label htmlFor={id} className={'font-bold text-xs'}>{label}</label>}
             <input
                 id={id}
