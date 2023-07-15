@@ -1,0 +1,1 @@
+export const CURRENT_BOARD_COOKIE_NAME= "current-board";

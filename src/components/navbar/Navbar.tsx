@@ -1,22 +1,35 @@
-'use client'
-import Button from "@/components/common/Button";
-import AddIcon from "@/assets/icon-add-task-mobile.svg";
-import DotsIcon from "@/assets/icon-vertical-ellipsis.svg";
+// 'use client'
 import MobileLogo from "@/assets/logo-mobile.svg";
 import Image from 'next/image'
 import SelectBoard from "@/components/navbar/SelectBoard";
-import AddNewBoardDialog from "@/components/dialog/AddNewBoardDialog";
-import React, {useState} from "react";
+import React from "react";
+import {fetchBoards} from "@/app/api/boards/route";
+import {Board} from "@/model/board/types";
+import NavbarBoardCreationSection from "@/components/navbar/NavbarBoardCreationSection";
+import {cookies} from "next/headers";
+import {CURRENT_BOARD_COOKIE_NAME} from "@/model/cookies/types";
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC = async () => {
+	const data: Board[] = await fetchBoards();
+	const dashboards = data.map((board) => board.name);
+	// const [dashboards, setDashboards] = useState<string[]>([]);
+	// const getData = async () => {
+	// 	try{
+	// 		//TODO: response is BoardDto response {boards: array[]}
+	// 		const response: any = await fetch('/api/boards').then(res => res.json());
+	// 		let boardsNames = response.boards.map((board: Board) => board.name);
+	// 		console.log(response);
+	// 		console.log(boardsNames);
+	// 		setDashboards(boardsNames);
+	// 	} catch (e: any){
+	// 		console.error(e);
+	// 	}
+	// }
+	// useEffect(() => {
+	// 	getData().then();
+	// }, [])
 
-    const dashboards = ['1', 'Very long project name to check if it not break my ui', 'project n 14']
-    const [isCreateNewBoardDialogOpen, setIsCreateNewBoardDialogOpen] = useState<boolean>(false);
-    
-    const createNewBoard = () => {
-        setIsCreateNewBoardDialogOpen(true);
-    }
-    
+	const currentBoard = cookies().get(CURRENT_BOARD_COOKIE_NAME)?.value ?? dashboards[0];
 
     return (
         <>
@@ -25,33 +38,15 @@ const Navbar: React.FC = () => {
                 <Image
                     src={MobileLogo}
                     alt={'logo-mobile'}
+					className={'h-6 w-6'}
                     width={24}
                     height={24}
                 />
-                <SelectBoard value={'Project Name 1'} dashboards={dashboards}/>
+				{dashboards.length > 0 && <SelectBoard value={currentBoard} dashboards={dashboards}/>}
             </div>
-            <div className={'flex justify-center items-center'}>
-                <Button appearance={'primary'} type={'icon'} onClick={createNewBoard}>
-                    <Image
-                        src={AddIcon}
-                        alt={'icon-add-task-mobile'}
-                        height={12}
-                        width={12}
-                    />
-                </Button>
-
-                <Button appearance={'transparent'} type={'icon'} onClick={() =>  console.log('touch my button')}>
-                    <Image
-                        src={DotsIcon}
-                        className={'h-4 w-1'}
-                        alt={'icon-dots-task-mobile'}
-                        height={16}
-                        width={3}
-                    />
-                </Button>
-            </div>
+           <NavbarBoardCreationSection />
         </nav>
-            {isCreateNewBoardDialogOpen && <AddNewBoardDialog isOpen={isCreateNewBoardDialogOpen} onClose={() => setIsCreateNewBoardDialogOpen(false)} columns={[]} />}
+
         </>
     )
 }

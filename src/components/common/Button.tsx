@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({className, appearance = 'primary', type=
     }
 
     if(type === 'icon') return (
-        <button onClick={handleOnClick} className={cn('py-2 px-4 rounded-3xl', getAppearanceBgColor(),className)}>
+        <button onClick={handleOnClick} className={cn('py-2 px-4 rounded-3xl', getAppearanceBgColor(), className)}>
             {children}
         </button>
     )

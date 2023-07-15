@@ -9,5 +9,6 @@
   "addNewColumn": "+ Add New Column",
   "toDo": "To Do",
   "inProgress": "In Progress",
-  "done": "Done"
+  "done": "Done",
+  "boardNameEmptyError": "Board name can't be empty"
 }
